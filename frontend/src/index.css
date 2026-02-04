@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  /* Playful Child-Friendly Colors */
+  --color-sunshine: #FFD93D;
+  --color-sky: #6BCF7F;
+  --color-bubble: #A8E6CF;
+  --color-grape: #9B7EDE;
+  --color-cherry: #FF6B9D;
+  --color-ocean: #4ECDC4;
+  --color-peach: #FFB997;
+
+  /* Primary Palette */
+  --color-primary: #FF6B9D;
+  --color-primary-dark: #E85588;
+  --color-primary-light: #FFB3CE;
+
+  --color-secondary: #6BCF7F;
+  --color-secondary-dark: #5AB86D;
+
+  --color-accent: #9B7EDE;
+
+  /* Backgrounds */
+  --color-bg-primary: #FFF9F0;
+  --color-bg-card: #FFFFFF;
+
+  /* Font Families */
+  --font-family-display: 'Outfit', 'Comic Sans MS', cursive, sans-serif;
+  --font-family-body: 'Inter', 'Comic Sans MS', sans-serif;
+
+  /* Animations */
+  --animate-bounce-slow: bounce 3s ease-in-out infinite;
+  --animate-wiggle: wiggle 1s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-sky-50 text-gray-800 antialiased;
+    font-family: var(--font-family-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-family-display);
+  }
+}
+
+@layer utilities {
+  .text-gradient-fun {
+    background: linear-gradient(135deg, #FF6B9D 0%, #9B7EDE 50%, #6BCF7F 100%);
+    @apply bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-accent text-white font-bold rounded-full px-8 py-4 text-xl shadow-2xl hover:scale-105 hover:shadow-primary/50 transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white font-bold rounded-full px-8 py-4 text-xl shadow-xl hover:scale-105 hover:shadow-secondary/50 transition-all duration-300;
+  }
+
+  .card-fun {
+    @apply bg-white rounded-3xl shadow-xl border-4 border-primary/20 p-8 hover:border-primary/40 hover:scale-105 transition-all duration-300;
+  }
+
+  .sticker {
+    @apply inline-block transform hover:scale-125 hover:rotate-12 transition-all duration-300;
+  }
+}
